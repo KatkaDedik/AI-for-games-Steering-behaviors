@@ -1,0 +1,85 @@
+*
+!*/
+
+# git & gitlab
+!.gitignore
+!.gitattributes
+!*.gitconfig
+!CODEOWNERS
+
+# editorconfig
+!*.editorconfig
+
+# text
+!*.md
+!*.json
+!*.meta
+!*.mat
+!*.preset
+!*.unity
+!*.cs
+!*.asset
+!*.txt
+!*.ad
+!*.shadergraph
+!*.prefab
+!*.anim
+!*.controller
+!*.shader
+!*.cginc
+!*.yml
+!*.sh
+!*.inputactions
+!*.ps1
+!*.props
+!*.asmdef
+!*.cgi
+!*.shadervariants
+
+# scripts
+!Scripts/**
+
+# images
+!*.png
+!*.gif
+!*.exr
+!*.ai
+!*.jpg
+
+# fonts
+!*.otf
+!*.ttf
+
+# sound
+!*.wav
+!*.mp3
+
+# models
+!*.blend
+!*.fbx
+!*.physicMaterial
+
+# licenses
+!LICENSE
+
+# libraries
+!Assets/Libraries/**/*.dll
+!Assets/Libraries/**/*.pdb
+
+# reignore builds & Unity stuff
+Library/
+Temp/
+Build/
+Builds/
+UserSettings/
+Logs/
+Packages/
+bin/
+obj/
+.vs/
+.vscode/
+*.orig.meta
+
+# reunignore package files
+!manifest.json
+!packages-lock.json
