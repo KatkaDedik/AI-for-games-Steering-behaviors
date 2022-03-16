@@ -42,7 +42,7 @@ public class ObstacleAvoidanceGameObject : AbstractSteeringGameObject
     [SerializeField] private float avoidDistance = 1f;
     [SerializeField] private float directionMemory = 0.5f;
     Vector3 Direction = Vector3.zero;
-    private LastObsticleSide lastSide = LastObsticleSide.None;
+    [SerializeField]private LastObsticleSide lastSide = LastObsticleSide.None;
     private Vector3 steer = Vector3.zero;
 
     protected override void Start()
@@ -80,11 +80,11 @@ public class ObstacleAvoidanceGameObject : AbstractSteeringGameObject
         //      In case you would prefer to modify the transform.position directly, you can change the movementControl to Manual (see AbstractSteeringGameObject class for info).
         //      Feel free to extend the codebase. However, make sure it is easy to find your solution.
         
-        Vector3 forwardRightDirection = transform.rotation * (Vector3.forward + Vector3.right / 4);
-        Vector3 forwardLeftDirection = transform.rotation * (Vector3.forward + Vector3.left / 4);
+        Vector3 forwardRightDirection = transform.rotation * (Vector3.forward + Vector3.right / 4).normalized;
+        Vector3 forwardLeftDirection = transform.rotation * (Vector3.forward + Vector3.left / 4).normalized;
 
-        Vector3 rightDirection = transform.rotation * (Vector3.forward + Vector3.right * 2);
-        Vector3 leftDirection = transform.rotation * (Vector3.forward + Vector3.left * 2);
+        Vector3 rightDirection = transform.rotation * (Vector3.forward + Vector3.right * 2).normalized;
+        Vector3 leftDirection = transform.rotation * (Vector3.forward + Vector3.left * 2).normalized;
         RaycastHit hit;
 
         if (lastSide == LastObsticleSide.Left)
@@ -152,12 +152,12 @@ public class ObstacleAvoidanceGameObject : AbstractSteeringGameObject
         Debug.DrawLine(transform.position, transform.position + forwardLeftDirection.normalized * LookAhead * 2, Color.cyan);
 
         steer.Normalize();
-
-        Direction += (steer + DesiredDirection) / directionMemory;
+        Direction += (steer + DesiredDirection * 0.1f) / directionMemory;
         Direction.Normalize();
         transform.position += Direction * Time.deltaTime * maxSpeed;
-
-        transform.LookAt(transform.position + Direction);
+        LookDirection.Normalize();
+        LookDirection = LookDirection * 0.3f + Direction * 0.7f;
+        
     }
 
 

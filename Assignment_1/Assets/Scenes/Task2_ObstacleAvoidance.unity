@@ -3366,7 +3366,7 @@ PrefabInstance:
     - target: {fileID: 2192165474541361516, guid: f4451486bdb7a0643a4aa6b4376c5f9b,
         type: 3}
       propertyPath: avoidDistance
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2192165474541361516, guid: f4451486bdb7a0643a4aa6b4376c5f9b,
         type: 3}
@@ -3381,6 +3381,11 @@ PrefabInstance:
     - target: {fileID: 2192165474541361516, guid: f4451486bdb7a0643a4aa6b4376c5f9b,
         type: 3}
       propertyPath: directionMemory
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192165474541361516, guid: f4451486bdb7a0643a4aa6b4376c5f9b,
+        type: 3}
+      propertyPath: movementControl
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2192165474541361516, guid: f4451486bdb7a0643a4aa6b4376c5f9b,

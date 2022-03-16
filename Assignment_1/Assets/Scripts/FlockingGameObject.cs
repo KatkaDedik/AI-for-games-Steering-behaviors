@@ -50,6 +50,7 @@ public class FlockingGameObject : AbstractSteeringGameObject
         var look = Velocity;
         Velocity = Velocity.normalized * speed;
         LookDirection += LookDirection * 0.98f + Velocity * 0.5f;
+        LookDirection.Normalize();
     }
 
     protected override void LateUpdate()
